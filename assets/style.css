@@ -1,39 +1,22 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Cairo', sans-serif;
   direction: rtl;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
 }
 
-.navbar {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
-}
-
-.navbar a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
+.navbar-brand {
   font-weight: bold;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+.hero-section {
+  background: url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+  background-size: cover;
+  padding: 100px 0;
 }
 
-header, main {
-  padding: 20px;
-  text-align: center;
+.hero-section h1 {
+  font-weight: bold;
 }
 
 footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  padding: 20px 0;
 }
