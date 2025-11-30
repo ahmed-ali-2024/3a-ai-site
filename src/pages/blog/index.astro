@@ -1,0 +1,113 @@
+---
+import MainLayout from "../../layouts/blog/MainLayout.astro";
+import BlogCard from "../../components/blog/BlogCard.astro";
+import { getCollection } from "astro:content";
+import { siteConfig } from "../../config/site";
+
+const posts = await getCollection("blog");
+
+// تصفية المقالات المنشورة فقط وترتيبها حسب التاريخ
+const publishedPosts = posts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<MainLayout title={siteConfig.title} description={siteConfig.description}>
+  <div class="container">
+    <section class="hero">
+      <h1 class="hero-title">مرحباً بك في {siteConfig.title}</h1>
+      <p class="hero-description">{siteConfig.description}</p>
+    </section>
+
+    <section class="posts-section">
+      <h2 class="section-title">أحدث المقالات</h2>
+
+      <div class="posts-grid">
+        {
+          publishedPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              author={post.data.author}
+              image={post.data.image}
+              category={post.data.category}
+              tags={post.data.tags}
+              slug={post.slug}
+              content={post.body}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(147, 51, 234, 0.1) 50%,
+      rgba(236, 72, 153, 0.1) 100%
+    );
+    border-radius: var(--radius-xl);
+    border: none;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    background: linear-gradient(to right, #e2e8f0, #94a3b8, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 2rem 0;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
