@@ -1,11 +1,14 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import { siteConfig } from "../config/site";
+import MainLayout from "../../layouts/blog/MainLayout.astro";
+import { siteConfig } from "../../config/site";
+
+const getSocialUrl = (platform: string) =>
+    siteConfig.social.find((s) => s.platform === platform)?.url || "#";
 
 const socialLinks = [
-    { name: "Twitter", url: siteConfig.social.twitter, icon: "twitter" },
-    { name: "GitHub", url: siteConfig.social.github, icon: "github" },
-    { name: "LinkedIn", url: siteConfig.social.linkedin, icon: "linkedin" },
+    { name: "Twitter", url: getSocialUrl("twitter"), icon: "twitter" },
+    { name: "GitHub", url: getSocialUrl("github"), icon: "github" },
+    { name: "LinkedIn", url: getSocialUrl("linkedin"), icon: "linkedin" },
 ];
 ---
 

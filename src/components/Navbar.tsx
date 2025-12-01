@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const navItems = [
   { name: "الرئيسية", href: "#hero" },
+  { name: "المعرض", href: "/blog" },
   { name: "خدماتنا", href: "#services" },
   { name: "أعمالنا", href: "#projects" },
   { name: "عن الشركة", href: "#vision" },

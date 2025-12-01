@@ -12,12 +12,14 @@ const publishedPosts = posts
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<MainLayout title={siteConfig.title} description={siteConfig.description}>
+<MainLayout title="معرض الأعمال" description="استكشف أحدث مشاريعنا وخدماتنا">
   <div class="container">
-    <section class="hero">
-      <h1 class="hero-title">مرحباً بك في {siteConfig.title}</h1>
-      <p class="hero-description">{siteConfig.description}</p>
-    </section>
+    <header class="blog-header">
+      <h1>معرض الأعمال</h1>
+      <p class="subtitle">
+        استكشف أحدث مشاريعنا وخدماتنا في مجال الذكاء الاصطناعي وتطوير الويب
+      </p>
+    </header>
 
     <section class="posts-section">
       <h2 class="section-title">أحدث المقالات</h2>

@@ -1,7 +1,7 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+import MainLayout from "../../layouts/blog/MainLayout.astro";
 import { getCollection } from "astro:content";
-import SearchIsland from "../components/react/SearchIsland.jsx";
+import SearchIsland from "../../components/blog/react/SearchIsland.jsx";
 
 const allPosts = await getCollection("blog");
 const publishedPosts = allPosts.filter((post) => !post.data.draft);
@@ -14,10 +14,10 @@ const postsWithBody = publishedPosts.map((post) => ({
 }));
 ---
 
-<MainLayout title="المدونة" description="جميع المقالات المنشورة">
+<MainLayout title="معرض الأعمال" description="أحدث مشاريعنا وخدماتنا">
   <div class="container">
-    <h1>المدونة</h1>
-    <p class="subtitle">جميع المقالات المنشورة</p>
+    <h1>معرض الأعمال</h1>
+    <p class="subtitle">أحدث مشاريعنا وخدماتنا</p>
 
     <SearchIsland posts={postsWithBody} client:load />
   </div>

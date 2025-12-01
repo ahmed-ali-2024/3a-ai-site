@@ -1,5 +1,5 @@
 ---
-import { isExternalImage, validateAltText } from '../utils/image';
+import { isExternalImage, validateAltText } from "../../utils/image";
 
 interface Props {
   src: string;
@@ -7,7 +7,7 @@ interface Props {
   width?: number;
   height?: number;
   class?: string;
-  loading?: 'lazy' | 'eager';
+  loading?: "lazy" | "eager";
   sizes?: string;
   quality?: number;
   widths?: number[];
@@ -19,8 +19,8 @@ const {
   width,
   height,
   class: className,
-  loading = 'lazy',
-  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px',
+  loading = "lazy",
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px",
   quality = 80,
   widths = [400, 800, 1200],
 } = Astro.props;
@@ -34,9 +34,10 @@ if (!validateAltText(alt)) {
 const isExternal = isExternalImage(src);
 
 // توليد srcset للصور المحلية
-const srcset = !isExternal && widths.length > 0
-  ? widths.map(w => `${src}?w=${w} ${w}w`).join(', ')
-  : undefined;
+const srcset =
+  !isExternal && widths.length > 0
+    ? widths.map((w) => `${src}?w=${w} ${w}w`).join(", ")
+    : undefined;
 ---
 
 <img

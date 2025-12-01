@@ -1,7 +1,10 @@
 ---
-import { formatDate } from '../../utils/date';
-import { calculateReadingTime, formatReadingTime } from '../../utils/reading-time';
-import OptimizedImage from './OptimizedImage.astro';
+import { formatDate } from "../../utils/date";
+import {
+  calculateReadingTime,
+  formatReadingTime,
+} from "../../utils/reading-time";
+import OptimizedImage from "./OptimizedImage.astro";
 
 interface Props {
   title: string;
@@ -13,58 +16,107 @@ interface Props {
   tags: string[];
   slug: string;
   content?: string;
+  client?: string;
+  projectUrl?: string;
+  serviceType?: string;
 }
 
-const { title, description, date, author, image, category, tags, slug, content } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  author,
+  image,
+  category,
+  tags,
+  slug,
+  content,
+  client,
+  projectUrl,
+  serviceType,
+} = Astro.props;
 
 const readingTime = content ? calculateReadingTime(content) : 0;
+const isProject = !!(client || projectUrl || serviceType);
 ---
 
-<article class="blog-card">
-  {image && (
-    <a href={`/blog/${slug}`} class="card-image-link">
-      <OptimizedImage
-        src={image}
-        alt={title}
-        class="card-image"
-        loading="lazy"
-        width={800}
-        height={400}
-        widths={[400, 600, 800]}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-      />
-    </a>
-  )}
-  
+<article class={`blog-card ${isProject ? "project-card" : ""}`}>
+  {
+    image && (
+      <a href={`/blog/${slug}`} class="card-image-link">
+        <OptimizedImage
+          src={image}
+          alt={title}
+          class="card-image"
+          loading="lazy"
+          width={800}
+          height={400}
+          widths={[400, 600, 800]}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+        />
+      </a>
+    )
+  }
+
   <div class="card-content">
     <div class="card-meta">
       <span class="card-category">{category}</span>
-      <time class="card-date" datetime={date.toISOString()}>
-        {formatDate(date, 'short')}
-      </time>
+      {
+        !isProject && (
+          <time class="card-date" datetime={date.toISOString()}>
+            {formatDate(date, "short")}
+          </time>
+        )
+      }
+      {isProject && client && <span class="card-client">العميل: {client}</span>}
     </div>
-    
+
     <h3 class="card-title">
       <a href={`/blog/${slug}`}>{title}</a>
     </h3>
-    
+
     <p class="card-description">{description}</p>
-    
+
     <div class="card-footer">
       <div class="card-author-info">
-        <span class="card-author">{author}</span>
-        {readingTime > 0 && (
-          <span class="card-reading-time">{formatReadingTime(readingTime)}</span>
-        )}
+        {
+          !isProject ? (
+            <>
+              <span class="card-author">{author}</span>
+              {readingTime > 0 && (
+                <span class="card-reading-time">
+                  {formatReadingTime(readingTime)}
+                </span>
+              )}
+            </>
+          ) : (
+            <span class="project-status">
+              {projectUrl ? (
+                <a
+                  href={projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  زيارة المشروع ↗
+                </a>
+              ) : (
+                <span class="status-completed">مكتمل</span>
+              )}
+            </span>
+          )
+        }
       </div>
-      
-      {tags.length > 0 && (
-        <div class="card-tags">
-          {tags.slice(0, 3).map((tag) => (
-            <span class="card-tag">{tag}</span>
-          ))}
-        </div>
-      )}
+
+      {
+        tags.length > 0 && (
+          <div class="card-tags">
+            {tags.slice(0, 3).map((tag) => (
+              <span class="card-tag">{tag}</span>
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
 </article>
@@ -80,36 +132,36 @@ const readingTime = content ? calculateReadingTime(content) : 0;
     display: flex;
     flex-direction: column;
   }
-  
+
   .blog-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
     border-color: var(--color-border-hover);
   }
-  
+
   .card-image-link {
     display: block;
     overflow: hidden;
   }
-  
+
   .card-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     transition: transform var(--transition-slow);
   }
-  
+
   .blog-card:hover .card-image {
     transform: scale(1.05);
   }
-  
+
   .card-content {
     padding: 1.5rem;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
-  
+
   .card-meta {
     display: flex;
     align-items: center;
@@ -117,7 +169,7 @@ const readingTime = content ? calculateReadingTime(content) : 0;
     margin-bottom: 1rem;
     font-size: 0.875rem;
   }
-  
+
   .card-category {
     display: inline-block;
     padding: 0.25rem 0.75rem;
@@ -127,34 +179,34 @@ const readingTime = content ? calculateReadingTime(content) : 0;
     font-weight: 500;
     font-size: 0.75rem;
   }
-  
+
   .card-date {
     color: var(--color-text-muted);
   }
-  
+
   .card-title {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
     line-height: 1.4;
   }
-  
+
   .card-title a {
     color: var(--color-text);
     text-decoration: none;
     transition: color var(--transition-fast);
   }
-  
+
   .card-title a:hover {
     color: var(--color-primary);
   }
-  
+
   .card-description {
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin-bottom: auto;
     flex: 1;
   }
-  
+
   .card-footer {
     display: flex;
     align-items: center;
@@ -164,29 +216,29 @@ const readingTime = content ? calculateReadingTime(content) : 0;
     border-top: 1px solid var(--color-border);
     gap: 1rem;
   }
-  
+
   .card-author-info {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
   }
-  
+
   .card-author {
     color: var(--color-text-muted);
     font-size: 0.875rem;
   }
-  
+
   .card-reading-time {
     color: var(--color-text-muted);
     font-size: 0.75rem;
   }
-  
+
   .card-tags {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
   }
-  
+
   .card-tag {
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
@@ -194,11 +246,36 @@ const readingTime = content ? calculateReadingTime(content) : 0;
     color: var(--color-text-secondary);
     border-radius: var(--radius-sm);
   }
-  
+
   @media (max-width: 768px) {
     .card-footer {
       flex-direction: column;
       align-items: flex-start;
     }
+  }
+
+  .card-client {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    background: var(--color-surface-hover);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .project-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .project-link:hover {
+    text-decoration: underline;
+  }
+
+  .status-completed {
+    color: var(--color-success, #10b981);
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 </style>
