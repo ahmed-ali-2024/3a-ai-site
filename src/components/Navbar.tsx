@@ -8,7 +8,7 @@ const navItems = [
   { name: "الرئيسية", href: "#hero" },
   { name: "خدماتنا", href: "/services" },
   { name: "أعمالنا", href: "/portfolio" },
-  { name: "عن الشركة", href: "#vision" },
+  { name: "رؤيتنا", href: "#vision" },
   { name: "تواصل معنا", href: "#contact" },
 ];
 

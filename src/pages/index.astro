@@ -1,15 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Services from '../components/Services';
-import Projects from '../components/Projects';
-import Vision from '../components/Vision';
-import Footer from '../components/Footer';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Services from "../components/Services";
+import Projects from "../components/Projects";
+import Vision from "../components/Vision";
+import Footer from "../components/Footer";
 ---
 
 <Layout>
-	<main class="min-h-screen bg-black">
+  <main class="min-h-screen bg-black">
     <Navbar client:load />
     <Hero client:load />
     <Vision client:visible />

@@ -26,10 +26,11 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">روابط سريعة</h3>
             <ul className="space-y-2">
-              <li><a href="#hero" className="text-gray-400 hover:text-white transition-colors">الرئيسية</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">خدماتنا</a></li>
-              <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors">أعمالنا</a></li>
-              <li><a href="#vision" className="text-gray-400 hover:text-white transition-colors">عن الشركة</a></li>
+              <li><a href="/" className="text-gray-400 hover:text-white transition-colors">الرئيسية</a></li>
+              <li><a href="/services" className="text-gray-400 hover:text-white transition-colors">الخدمات</a></li>
+              <li><a href="/portfolio" className="text-gray-400 hover:text-white transition-colors">أعمالنا</a></li>
+              <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">من نحن</a></li>
+              <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">اتصل بنا</a></li>
             </ul>
           </div>
 

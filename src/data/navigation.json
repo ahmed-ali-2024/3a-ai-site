@@ -23,6 +23,26 @@
     ],
     "footer": [
         {
+            "text": "الرئيسية",
+            "href": "/"
+        },
+        {
+            "text": "الخدمات",
+            "href": "/services"
+        },
+        {
+            "text": "أعمالنا",
+            "href": "/portfolio"
+        },
+        {
+            "text": "من نحن",
+            "href": "/about"
+        },
+        {
+            "text": "اتصل بنا",
+            "href": "/contact"
+        },
+        {
             "text": "سياسة الخصوصية",
             "href": "/privacy"
         },
