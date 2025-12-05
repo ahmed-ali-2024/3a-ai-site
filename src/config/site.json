@@ -1,45 +1,45 @@
 {
-    "title": "3AAI || Blog",
-    "description": "مدونة تقنية متخصصة في الذكاء الاصطناعي والتطوير البرمجي",
-    "url": "https://3aai.in",
-    "author": {
-        "name": "اسم الكاتب",
-        "bio": "كاتب ومطور ويب متخصص في التقنيات الحديثة",
-        "avatar": "/images/avatar.jpg",
-        "email": "author@3aai.in"
+  "title": "3AAI ",
+  "description": "3AAI ||  الموقع الرسمي",
+  "url": "https://3aai.in",
+  "author": {
+    "name": "3AAI ",
+    "bio": "3AAI ",
+    "avatar": "/images/avatar.jpg",
+    "email": "author@3aai.in"
+  },
+  "logo": {
+    "src": "/logo.png",
+    "alt": "3AAI ",
+    "text": "3AAI "
+  },
+  "social": [
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com/3aai",
+      "icon": "twitter"
     },
-    "logo": {
-        "src": "/logo.png",
-        "alt": "شعار 3AAI Blog",
-        "text": "3AAI || Blog"
+    {
+      "platform": "github",
+      "url": "https://github.com/3aai",
+      "icon": "github"
     },
-    "social": [
-        {
-            "platform": "twitter",
-            "url": "https://twitter.com/3aai",
-            "icon": "twitter"
-        },
-        {
-            "platform": "github",
-            "url": "https://github.com/3aai",
-            "icon": "github"
-        },
-        {
-            "platform": "linkedin",
-            "url": "https://linkedin.com/company/3aai",
-            "icon": "linkedin"
-        }
-    ],
-    "navigation": [],
-    "footer": {
-        "about": {
-            "title": "من نحن",
-            "description": "مدونة عربية متخصصة في تقديم محتوى تقني وثقافي عالي الجودة"
-        },
-        "links": [],
-        "copyright": "جميع الحقوق محفوظة"
+    {
+      "platform": "linkedin",
+      "url": "https://linkedin.com/company/3aai",
+      "icon": "linkedin"
+    }
+  ],
+  "navigation": [],
+  "footer": {
+    "about": {
+      "title": "من نحن",
+      "description": "نقدم حلول تقنية متكاملة تجمع بين الذكاء الاصطناعي وتطوير البرمجيات لبناء المستقبل الرقمي."
     },
-    "postsPerPage": 10,
-    "language": "ar",
-    "direction": "rtl"
+    "links": [],
+    "copyright": "جميع الحقوق محفوظة"
+  },
+  "postsPerPage": 10,
+  "language": "ar",
+  "direction": "rtl"
 }

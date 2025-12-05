@@ -26,11 +26,7 @@ export default config({
                 author: fields.object({
                     name: fields.text({ label: 'اسم الكاتب' }),
                     bio: fields.text({ label: 'نبذة عن الكاتب' }),
-                    avatar: fields.image({
-                        label: 'الصورة الشخصية',
-                        directory: 'public/images/authors',
-                        publicPath: '/images/authors/',
-                    }),
+                    avatar: fields.text({ label: 'الصورة الشخصية' }),
                     email: fields.text({ label: 'البريد الإلكتروني' }),
                 }, { label: 'معلومات الكاتب' }),
                 logo: fields.object({
@@ -49,6 +45,39 @@ export default config({
                         itemLabel: (props) => props.fields.platform.value || 'رابط جديد',
                     }
                 ),
+                navigation: fields.array(
+                    fields.text({ label: 'عنصر' }),
+                    {
+                        label: 'قائمة التنقل',
+                        itemLabel: (props) => props.value || 'عنصر جديد',
+                    }
+                ),
+                footer: fields.object({
+                    about: fields.object({
+                        title: fields.text({ label: 'العنوان' }),
+                        description: fields.text({ label: 'الوصف', multiline: true }),
+                    }, { label: 'قسم من نحن' }),
+                    links: fields.array(
+                        fields.text({ label: 'رابط' }),
+                        {
+                            label: 'روابط الفوتر',
+                            itemLabel: (props) => props.value || 'رابط جديد',
+                        }
+                    ),
+                    copyright: fields.text({ label: 'حقوق النشر' }),
+                }, { label: 'الفوتر' }),
+                postsPerPage: fields.number({
+                    label: 'عدد المقالات في الصفحة',
+                    defaultValue: 10,
+                }),
+                language: fields.text({
+                    label: 'اللغة',
+                    defaultValue: 'ar',
+                }),
+                direction: fields.text({
+                    label: 'الاتجاه',
+                    defaultValue: 'rtl',
+                }),
             },
         }),
     },
