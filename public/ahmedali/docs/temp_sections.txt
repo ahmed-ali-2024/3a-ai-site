@@ -1,0 +1,165 @@
+﻿<!-- Featured Projects Section -->
+<section id="projects" class="section bg-light">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">
+                <span class="badge badge-secondary">Portfolio</span>
+            </div>
+            <h2 class="section-title" data-i18n="projects_title">ظ…ط´ط§ط±ظٹط¹ ظ…ظ…ظٹط²ط©</h2>
+            <p class="section-subtitle" data-i18n="projects_subtitle">ط§ط³طھظƒط´ظپ ط¨ط¹ط¶ ط£ط¹ظ…ط§ظ„ظٹ ط§ظ„ط­ط¯ظٹط«ط©</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1: Cookit App -->
+            <div class="project-card animate-on-scroll">
+                <div class="project-image">
+                    <div class="project-image-placeholder">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="https://play.google.com/store/apps/details?id=com.a3aai.cookit" target="_blank"
+                            class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="view_project">ظ…ط´ط§ظ‡ط¯ط© ط§ظ„ظ…ط´ط±ظˆط¹</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Cookit App</h3>
+                    <p>طھط·ط¨ظٹظ‚ Flutter Cross-Platform ظ„ظˆطµظپط§طھ ط§ظ„ط·ط¹ط§ظ… ط¨ط§ظ„ط°ظƒط§ط، ط§ظ„ط§طµط·ظ†ط§ط¹ظٹ. ظٹط³ط§ط¹ط¯ ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† ط¹ظ„ظ‰ ط§ظƒطھط´ط§ظپ ظˆطµظپط§طھ
+                        ط¬ط¯ظٹط¯ط© ط¨ظ†ط§ط،ظ‹ ط¹ظ„ظ‰ ط§ظ„ظ…ظƒظˆظ†ط§طھ ط§ظ„ظ…طھظˆظپط±ط©.</p>
+                    <div class="project-tech">
+                        <span class="badge badge-primary">Flutter</span>
+                        <span class="badge badge-secondary">Gemini AI</span>
+                        <span class="badge badge-accent">Firebase</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Cookit Web -->
+            <div class="project-card animate-on-scroll" style="animation-delay: 0.1s;">
+                <div class="project-image">
+                    <div class="project-image-placeholder">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="http://cookit.3aai.in/" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="view_project">ظ…ط´ط§ظ‡ط¯ط© ط§ظ„ظ…ط´ط±ظˆط¹</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Cookit Web</h3>
+                    <p>ظ†ط³ط®ط© ط§ظ„ظˆظٹط¨ ظ…ظ† طھط·ط¨ظٹظ‚ CookitطŒ طھظˆظپط± طھط¬ط±ط¨ط© ط³ظ„ط³ط© ط¹ط¨ط± ط§ظ„ظ…طھطµظپط­ط§طھ ظ„ط¬ظ…ظٹط¹ ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ†.</p>
+                    <div class="project-tech">
+                        <span class="badge badge-primary">Flutter Web</span>
+                        <span class="badge badge-secondary">Responsive</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Prompt Engineer -->
+            <div class="project-card animate-on-scroll" style="animation-delay: 0.2s;">
+                <div class="project-image">
+                    <div class="project-image-placeholder">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="https://pe.3aai.in/" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="view_project">ظ…ط´ط§ظ‡ط¯ط© ط§ظ„ظ…ط´ط±ظˆط¹</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>3A-AI Prompt Engineer</h3>
+                    <p>ظ…ظ†طµط© ط°ظƒظٹط© ظ„طھط­ط³ظٹظ† ط£ظˆط§ظ…ط± ط§ظ„ط°ظƒط§ط، ط§ظ„ط§طµط·ظ†ط§ط¹ظٹ ظˆط§ظ„ط­طµظˆظ„ ط¹ظ„ظ‰ ط£ظپط¶ظ„ ط§ظ„ظ†طھط§ط¦ط¬ ظ…ظ† ظ†ظ…ط§ط°ط¬ ط§ظ„ظ„ط؛ط© ط§ظ„ظƒط¨ظٹط±ط©.</p>
+                    <div class="project-tech">
+                        <span class="badge badge-secondary">AI</span>
+                        <span class="badge badge-primary">NLP</span>
+                        <span class="badge badge-accent">LLM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: 3A-AI News -->
+            <div class="project-card animate-on-scroll" style="animation-delay: 0.3s;">
+                <div class="project-image">
+                    <div class="project-image-placeholder">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="https://news.3aai.in/" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="view_project">ظ…ط´ط§ظ‡ط¯ط© ط§ظ„ظ…ط´ط±ظˆط¹</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>3A-AI News</h3>
+                    <p>ط¨ظˆط§ط¨ط© ط¹ط±ط¨ظٹط© ظ„ظ„ط£ط®ط¨ط§ط± ط§ظ„طھظ‚ظ†ظٹط©طŒ طھط؛ط·ظٹ ط¢ط®ط± ط§ظ„طھط·ظˆط±ط§طھ ظپظٹ ط¹ط§ظ„ظ… ط§ظ„ط¨ط±ظ…ط¬ط© ظˆط§ظ„ط°ظƒط§ط، ط§ظ„ط§طµط·ظ†ط§ط¹ظٹ.</p>
+                    <div class="project-tech">
+                        <span class="badge badge-primary">WordPress</span>
+                        <span class="badge badge-accent">Content</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">
+                <span class="badge badge-accent">Services</span>
+            </div>
+            <h2 class="section-title" data-i18n="services_title">ط§ظ„ط®ط¯ظ…ط§طھ ط§ظ„طھظٹ ظ†ظ‚ط¯ظ…ظ‡ط§</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fab fa-flutter"></i>
+                </div>
+                <h3 data-i18n="service_flutter_title">طھط·ظˆظٹط± طھط·ط¨ظٹظ‚ط§طھ Flutter</h3>
+                <p data-i18n="service_flutter_desc">ط¨ظ†ط§ط، طھط·ط¨ظٹظ‚ط§طھ Android ظˆ iOS ط¹طµط±ظٹط© ظ…ظ† ظƒظˆط¯ ظˆط§ط­ط¯</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> طھط·ط¨ظٹظ‚ط§طھ Cross-Platform</li>
+                    <li><i class="fas fa-check"></i> طھطµظ…ظٹظ… UI/UX ط¬ط°ط§ط¨</li>
+                    <li><i class="fas fa-check"></i> ط£ط¯ط§ط، ط¹ط§ظ„ظٹ ظˆط³ط±ط¹ط©</li>
+                    <li><i class="fas fa-check"></i> ط³ظ‡ظˆظ„ط© ط§ظ„طµظٹط§ظ†ط©</li>
+                </ul>
+            </div>
+
+            <div class="service-card animate-on-scroll" style="animation-delay: 0.1s;">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 data-i18n="service_ai_title">ط­ظ„ظˆظ„ ط§ظ„ط°ظƒط§ط، ط§ظ„ط§طµط·ظ†ط§ط¹ظٹ</h3>
+                <p data-i18n="service_ai_desc">ط¯ظ…ط¬ ظ†ظ…ط§ط°ط¬ AI ط§ظ„ظ…طھظ‚ط¯ظ…ط© ظپظٹ طھط·ط¨ظٹظ‚ط§طھظƒ</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> طھظƒط§ظ…ظ„ Generative AI</li>
+                    <li><i class="fas fa-check"></i> Chatbots ط°ظƒظٹط©</li>
+                    <li><i class="fas fa-check"></i> ظ…ط¹ط§ظ„ط¬ط© ط§ظ„ظ„ط؛ط© ط§ظ„ط·ط¨ظٹط¹ظٹط©</li>
+                    <li><i class="fas fa-check"></i> ظ‡ظ†ط¯ط³ط© ط§ظ„ط£ظˆط§ظ…ط± ط§ظ„ظ…طھظ‚ط¯ظ…ط©</li>
+                </ul>
+            </div>
+
+            <div class="service-card animate-on-scroll" style="animation-delay: 0.2s;">
+                <div class="service-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3 data-i18n="service_consulting_title">ط§ط³طھط´ط§ط±ط§طھ طھظ‚ظ†ظٹط©</h3>
+                <p data-i18n="service_consulting_desc">ط¥ط±ط´ط§ط¯ط§طھ ط®ط¨ظٹط±ط© ظ„ط§ط®طھظٹط§ط± ط§ظ„طھظ‚ظ†ظٹط§طھ ط§ظ„ظ…ظ†ط§ط³ط¨ط©</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> طھط­ظ„ظٹظ„ ط§ظ„ظ…طھط·ظ„ط¨ط§طھ</li>
+                    <li><i class="fas fa-check"></i> ط§ط®طھظٹط§ط± Tech Stack</li>
+                    <li><i class="fas fa-check"></i> ظ…ط±ط§ط¬ط¹ط© Architecture</li>
+                    <li><i class="fas fa-check"></i> طھط­ط³ظٹظ† ط§ظ„ط£ط¯ط§ط،</li>
+                </ul>
+            </div>
+        </div>
+    </div>

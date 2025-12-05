@@ -1,19 +1,19 @@
 ---
-import MainLayout from "../../layouts/blog/MainLayout.astro";
+import MainLayout from "../layouts/blog/MainLayout.astro";
 import { getEntry } from "astro:content";
 
 const aboutPage = await getEntry("pages", "about");
-const { Content } = await aboutPage.render();
+// Handle missing page gracefully
+const title = aboutPage?.data?.title || "من نحن";
+const description = aboutPage?.data?.description || "نبذة عن 3AAI";
+const Content = aboutPage ? (await aboutPage.render()).Content : null;
 ---
 
-<MainLayout
-  title={aboutPage.data.title}
-  description={aboutPage.data.description}
->
+<MainLayout title={title} description={description}>
   <div class="container">
     <div class="content-page">
-      <h1>{aboutPage.data.title}</h1>
-      <Content />
+      <h1>{title}</h1>
+      {Content ? <Content /> : <p>المحتوى قيد التجهيز...</p>}
     </div>
   </div>
 </MainLayout>

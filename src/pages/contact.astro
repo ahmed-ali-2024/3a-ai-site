@@ -1,14 +1,26 @@
 ---
-import MainLayout from "../../layouts/blog/MainLayout.astro";
-import { siteConfig } from "../../config/site";
+import MainLayout from "../layouts/blog/MainLayout.astro";
+import { siteConfig } from "../config/site";
 
 const getSocialUrl = (platform: string) =>
     siteConfig.social.find((s) => s.platform === platform)?.url || "#";
 
 const socialLinks = [
-    { name: "Twitter", url: getSocialUrl("twitter"), icon: "twitter" },
-    { name: "GitHub", url: getSocialUrl("github"), icon: "github" },
-    { name: "LinkedIn", url: getSocialUrl("linkedin"), icon: "linkedin" },
+    {
+        name: "Facebook",
+        url: "https://www.facebook.com/3a4ai/",
+        icon: "facebook",
+    },
+    {
+        name: "YouTube",
+        url: "https://www.youtube.com/@3A_AI-w2r/",
+        icon: "youtube",
+    },
+    {
+        name: "Instagram",
+        url: "https://www.instagram.com/a3a19819/",
+        icon: "instagram",
+    },
 ];
 ---
 
@@ -33,14 +45,19 @@ const socialLinks = [
 
                     <div class="info-item">
                         <span class="icon">📧</span>
-                        <a href="mailto:contact@3aai.blog" class="link"
-                            >contact@3aai.blog</a
+                        <a href="mailto:support@3aai.in" class="link"
+                            >support@3aai.in</a
                         >
                     </div>
 
                     <div class="info-item">
                         <span class="icon">📍</span>
-                        <span>الرياض، المملكة العربية السعودية</span>
+                        <span>مصر</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">📱</span>
+                        <span>01010510653</span>
                     </div>
                 </div>
 
