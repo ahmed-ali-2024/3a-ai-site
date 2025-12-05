@@ -6,13 +6,13 @@
   /* 3AAI Theme Colors (Dark Mode Default) */
   --color-primary: #3b82f6; /* Blue accent */
   --color-primary-hover: #60a5fa;
-  --color-secondary: #a1a1aa;
+  --color-secondary: #c4c4cc;
   --color-background: #000000; /* Pure Black */
   --color-surface: #111111; /* Slightly lighter for cards */
   --color-surface-hover: #1a1a1a;
   --color-text: #ededed; /* Off-white text */
-  --color-text-secondary: #a1a1aa; /* Gray text */
-  --color-text-muted: #52525b;
+  --color-text-secondary: #c4c4cc; /* Gray text - improved contrast */
+  --color-text-muted: #737380; /* Improved contrast */
   --color-border: #333333;
   --color-border-hover: #444444;
   --color-success: #10b981;
