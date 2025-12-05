@@ -25,37 +25,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Load Secrets from Single Variable
-        id: secrets
-        shell: bash
-        run: |
-          # Read the secret into a file
-          echo "${{ secrets.FTP_SETTINGS }}" > .env_secrets
-          
-          # Parse and export variables
-          while IFS='=' read -r key value || [ -n "$key" ]; do
-            # Skip empty lines and comments
-            [[ -z "$key" || "$key" =~ ^# ]] && continue
-            
-            # Trim whitespace
-            key=$(echo "$key" | xargs)
-            value=$(echo "$value" | xargs)
-            
-            # Mask the value in logs
-            echo "::add-mask::$value"
-            
-            # Set as environment variable
-            echo "$key=$value" >> $GITHUB_ENV
-          done < .env_secrets
-          
-          rm .env_secrets
-
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ env.FTP_SERVER }}
-          username: ${{ env.FTP_USERNAME }}
-          password: ${{ env.FTP_PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ./
           protocol: ftps
