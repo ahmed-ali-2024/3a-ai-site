@@ -45,8 +45,11 @@ export default function Navbar() {
           </div>
           <div className="-mr-2 flex md:hidden">
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-hidden"
+              className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+              aria-expanded={isOpen}
+              aria-label="فتح القائمة الرئيسية"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
@@ -56,7 +59,13 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-black/95">
+        <motion.div
+          className="md:hidden bg-black/95"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+        >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <a
@@ -69,7 +78,7 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );
