@@ -391,5 +391,25 @@ const relatedProjects = allProjects
         .related-grid {
             grid-template-columns: 1fr;
         }
+
+        .hero-image img,
+        .hero-image :global(img) {
+            max-height: 300px;
+        }
+
+        .description {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-image img,
+        .hero-image :global(img) {
+            max-height: 200px;
+        }
+
+        .content-section {
+            font-size: 1rem;
+        }
     }
 </style>
