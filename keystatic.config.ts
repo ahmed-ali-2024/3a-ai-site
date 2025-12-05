@@ -229,5 +229,131 @@ export default config({
                 }),
             },
         }),
+
+        // مجموعة الخدمات
+        services: collection({
+            label: 'الخدمات',
+            slugField: 'slug',
+            path: 'src/content/services/*',
+            format: { contentField: 'body' },
+            entryLayout: 'content',
+            schema: {
+                slug: fields.slug({ name: { label: 'الرابط (Slug)' } }),
+                title: fields.text({
+                    label: 'عنوان الخدمة',
+                    validation: { length: { min: 1 } },
+                }),
+                description: fields.text({
+                    label: 'وصف الخدمة',
+                    multiline: true,
+                }),
+                icon: fields.text({
+                    label: 'أيقونة الخدمة (Emoji)',
+                    description: 'مثال: 🚀 أو 💻',
+                }),
+                image: fields.image({
+                    label: 'صورة الخدمة',
+                    directory: 'public/images/services',
+                    publicPath: '/images/services/',
+                }),
+                features: fields.array(
+                    fields.text({ label: 'ميزة' }),
+                    {
+                        label: 'مميزات الخدمة',
+                        itemLabel: (props) => props.value || 'ميزة جديدة',
+                    }
+                ),
+                order: fields.number({
+                    label: 'ترتيب العرض',
+                    defaultValue: 0,
+                }),
+                draft: fields.checkbox({
+                    label: 'مسودة؟',
+                    defaultValue: false,
+                }),
+                body: fields.document({
+                    label: 'تفاصيل الخدمة',
+                    formatting: true,
+                    dividers: true,
+                    links: true,
+                    images: {
+                        directory: 'public/images/services',
+                        publicPath: '/images/services/',
+                    },
+                }),
+            },
+        }),
+
+        // مجموعة معرض الأعمال
+        portfolio: collection({
+            label: 'معرض الأعمال',
+            slugField: 'slug',
+            path: 'src/content/portfolio/*',
+            format: { contentField: 'body' },
+            entryLayout: 'content',
+            schema: {
+                slug: fields.slug({ name: { label: 'الرابط (Slug)' } }),
+                title: fields.text({
+                    label: 'عنوان المشروع',
+                    validation: { length: { min: 1 } },
+                }),
+                description: fields.text({
+                    label: 'وصف المشروع',
+                    multiline: true,
+                }),
+                client: fields.text({
+                    label: 'اسم العميل',
+                }),
+                date: fields.date({
+                    label: 'تاريخ الإنجاز',
+                    defaultValue: { kind: 'today' },
+                }),
+                image: fields.image({
+                    label: 'الصورة الرئيسية',
+                    directory: 'public/images/portfolio',
+                    publicPath: '/images/portfolio/',
+                }),
+                category: fields.select({
+                    label: 'تصنيف المشروع',
+                    options: [
+                        { label: 'تطوير ويب', value: 'تطوير ويب' },
+                        { label: 'تطبيقات موبايل', value: 'تطبيقات موبايل' },
+                        { label: 'ذكاء اصطناعي', value: 'ذكاء اصطناعي' },
+                        { label: 'تصميم UI/UX', value: 'تصميم UI/UX' },
+                        { label: 'أنظمة إدارة', value: 'أنظمة إدارة' },
+                        { label: 'أخرى', value: 'أخرى' },
+                    ],
+                    defaultValue: 'تطوير ويب',
+                }),
+                technologies: fields.array(
+                    fields.text({ label: 'تقنية' }),
+                    {
+                        label: 'التقنيات المستخدمة',
+                        itemLabel: (props) => props.value || 'تقنية جديدة',
+                    }
+                ),
+                projectUrl: fields.url({
+                    label: 'رابط المشروع',
+                }),
+                featured: fields.checkbox({
+                    label: 'مشروع مميز؟',
+                    defaultValue: false,
+                }),
+                draft: fields.checkbox({
+                    label: 'مسودة؟',
+                    defaultValue: false,
+                }),
+                body: fields.document({
+                    label: 'تفاصيل المشروع',
+                    formatting: true,
+                    dividers: true,
+                    links: true,
+                    images: {
+                        directory: 'public/images/portfolio',
+                        publicPath: '/images/portfolio/',
+                    },
+                }),
+            },
+        }),
     },
 });

@@ -1,0 +1,371 @@
+---
+import MainLayout from "../../layouts/blog/MainLayout.astro";
+import { getCollection } from "astro:content";
+import OptimizedImage from "../../components/blog/OptimizedImage.astro";
+
+const projects = await getCollection("portfolio");
+
+// تصفية وترتيب المشاريع
+const publishedProjects = projects
+    .filter((p) => !p.data.draft)
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// استخراج التصنيفات الفريدة
+const categories = [...new Set(publishedProjects.map((p) => p.data.category))];
+---
+
+<MainLayout
+    title="أعمالنا"
+    description="استعرض مشاريعنا السابقة وأعمالنا المميزة"
+>
+    <div class="container">
+        <header class="page-header">
+            <h1>أعمالنا</h1>
+            <p class="subtitle">
+                نفتخر بتقديم حلول تقنية متميزة لعملائنا الكرام
+            </p>
+        </header>
+
+        {
+            categories.length > 1 && (
+                <nav class="category-filter">
+                    <button class="filter-btn active" data-category="all">
+                        الكل
+                    </button>
+                    {categories.map((cat) => (
+                        <button class="filter-btn" data-category={cat}>
+                            {cat}
+                        </button>
+                    ))}
+                </nav>
+            )
+        }
+
+        <section class="portfolio-grid">
+            {
+                publishedProjects.map((project) => (
+                    <article
+                        class={`portfolio-card ${project.data.featured ? "featured" : ""}`}
+                        data-category={project.data.category}
+                    >
+                        <div class="card-image">
+                            {project.data.image ? (
+                                <OptimizedImage
+                                    src={project.data.image}
+                                    alt={project.data.title}
+                                    loading="lazy"
+                                    width={600}
+                                    height={400}
+                                    widths={[400, 600]}
+                                    sizes="(max-width: 768px) 100vw, 400px"
+                                />
+                            ) : (
+                                <div class="placeholder-image">
+                                    <span>🖼️</span>
+                                </div>
+                            )}
+                            {project.data.featured && (
+                                <span class="featured-badge">مميز</span>
+                            )}
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">
+                                {project.data.category}
+                            </span>
+                            <h3 class="card-title">
+                                <a href={`/portfolio/${project.slug}`}>
+                                    {project.data.title}
+                                </a>
+                            </h3>
+                            <p class="card-description">
+                                {project.data.description}
+                            </p>
+                            {project.data.technologies &&
+                                project.data.technologies.length > 0 && (
+                                    <div class="technologies">
+                                        {project.data.technologies
+                                            .slice(0, 4)
+                                            .map((tech) => (
+                                                <span class="tech-tag">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                    </div>
+                                )}
+                            <div class="card-footer">
+                                {project.data.client && (
+                                    <span class="client">
+                                        العميل: {project.data.client}
+                                    </span>
+                                )}
+                                <a
+                                    href={`/portfolio/${project.slug}`}
+                                    class="view-link"
+                                >
+                                    عرض المشروع ←
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </section>
+
+        {
+            publishedProjects.length === 0 && (
+                <div class="empty-state">
+                    <p>لا توجد مشاريع حالياً</p>
+                </div>
+            )
+        }
+    </div>
+</MainLayout>
+
+<style>
+    .page-header {
+        text-align: center;
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-secondary, #a855f7)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .category-filter {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1.25rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-full, 50px);
+        color: var(--color-text-secondary);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+        background: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+    }
+
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    .portfolio-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-xl, 16px);
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .portfolio-card.featured {
+        grid-column: span 1;
+        border-color: var(--color-primary);
+    }
+
+    .card-image {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .card-image img,
+    .card-image :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+    }
+
+    .portfolio-card:hover .card-image img,
+    .portfolio-card:hover .card-image :global(img) {
+        transform: scale(1.05);
+    }
+
+    .placeholder-image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+            135deg,
+            var(--color-surface-hover),
+            var(--color-border)
+        );
+        font-size: 3rem;
+    }
+
+    .featured-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        padding: 0.35rem 0.75rem;
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-radius: var(--radius-md);
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .card-category {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: var(--color-primary);
+        color: white;
+        font-size: 0.75rem;
+        border-radius: var(--radius-md);
+        margin-bottom: 0.75rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .card-title a {
+        color: var(--color-text);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .card-title a:hover {
+        color: var(--color-primary);
+    }
+
+    .card-description {
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tech-tag {
+        padding: 0.25rem 0.5rem;
+        background: var(--color-surface-hover);
+        color: var(--color-text-secondary);
+        font-size: 0.75rem;
+        border-radius: var(--radius-sm);
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .client {
+        font-size: 0.85rem;
+        color: var(--color-text-muted);
+    }
+
+    .view-link {
+        color: var(--color-primary);
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .view-link:hover {
+        text-decoration: underline;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: var(--color-text-muted);
+    }
+
+    @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 2rem;
+        }
+
+        .portfolio-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .card-footer {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+    }
+</style>
+
+<script>
+    // فلترة المشاريع حسب التصنيف
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".portfolio-card");
+
+    filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const category = btn.getAttribute("data-category");
+
+            // تحديث الزر النشط
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            // فلترة البطاقات
+            cards.forEach((card) => {
+                if (
+                    category === "all" ||
+                    card.getAttribute("data-category") === category
+                ) {
+                    (card as HTMLElement).style.display = "block";
+                } else {
+                    (card as HTMLElement).style.display = "none";
+                }
+            });
+        });
+    });
+</script>

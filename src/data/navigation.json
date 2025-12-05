@@ -2,37 +2,33 @@
     "header": [
         {
             "text": "الرئيسية",
-            "href": "/blog"
+            "href": "/"
         },
         {
-            "text": "المقالات",
-            "href": "/blog"
+            "text": "الخدمات",
+            "href": "/services"
         },
         {
-            "text": "التصنيفات",
-            "href": "/blog/categories"
+            "text": "أعمالنا",
+            "href": "/portfolio"
         },
         {
             "text": "من نحن",
-            "href": "/blog/about"
+            "href": "/about"
         },
         {
             "text": "اتصل بنا",
-            "href": "/blog/contact"
+            "href": "/contact"
         }
     ],
     "footer": [
         {
             "text": "سياسة الخصوصية",
-            "href": "/blog/privacy"
+            "href": "/privacy"
         },
         {
             "text": "شروط الاستخدام",
-            "href": "/blog/terms"
-        },
-        {
-            "text": "الأرشيف",
-            "href": "/blog/archive"
+            "href": "/terms"
         }
     ]
 }

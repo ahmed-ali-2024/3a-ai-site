@@ -1,0 +1,395 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import MainLayout from "../../layouts/blog/MainLayout.astro";
+import OptimizedImage from "../../components/blog/OptimizedImage.astro";
+import { formatDate } from "../../utils/date";
+
+export async function getStaticPaths() {
+    const projects = await getCollection("portfolio");
+    const publishedProjects = projects.filter((p) => !p.data.draft);
+
+    return publishedProjects.map((project) => ({
+        params: { slug: project.slug },
+        props: { project },
+    }));
+}
+
+interface Props {
+    project: CollectionEntry<"portfolio">;
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+// مشاريع مشابهة (نفس التصنيف)
+const allProjects = await getCollection("portfolio");
+const relatedProjects = allProjects
+    .filter(
+        (p) =>
+            !p.data.draft &&
+            p.slug !== project.slug &&
+            p.data.category === project.data.category,
+    )
+    .slice(0, 3);
+---
+
+<MainLayout
+    title={project.data.title}
+    description={project.data.description}
+    image={project.data.image}
+>
+    <article class="project-detail">
+        <div class="container">
+            {
+                project.data.image && (
+                    <div class="hero-image">
+                        <OptimizedImage
+                            src={project.data.image}
+                            alt={project.data.title}
+                            loading="eager"
+                            width={1200}
+                            height={600}
+                            widths={[600, 900, 1200]}
+                            sizes="100vw"
+                        />
+                    </div>
+                )
+            }
+
+            <header class="project-header">
+                <div class="meta-row">
+                    <span class="category">{project.data.category}</span>
+                    <time datetime={project.data.date.toISOString()}>
+                        {formatDate(project.data.date)}
+                    </time>
+                </div>
+                <h1>{project.data.title}</h1>
+                <p class="description">{project.data.description}</p>
+            </header>
+
+            <div class="project-info">
+                {
+                    project.data.client && (
+                        <div class="info-item">
+                            <span class="label">العميل</span>
+                            <span class="value">{project.data.client}</span>
+                        </div>
+                    )
+                }
+                {
+                    project.data.technologies &&
+                        project.data.technologies.length > 0 && (
+                            <div class="info-item">
+                                <span class="label">التقنيات</span>
+                                <div class="technologies">
+                                    {project.data.technologies.map((tech) => (
+                                        <span class="tech-tag">{tech}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        )
+                }
+                {
+                    project.data.projectUrl && (
+                        <div class="info-item">
+                            <span class="label">رابط المشروع</span>
+                            <a
+                                href={project.data.projectUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-url"
+                            >
+                                زيارة المشروع ↗
+                            </a>
+                        </div>
+                    )
+                }
+            </div>
+
+            <section class="content-section">
+                <Content />
+            </section>
+
+            <div class="back-link-container">
+                <a href="/portfolio" class="back-link">→ العودة لمعرض الأعمال</a
+                >
+            </div>
+
+            {
+                relatedProjects.length > 0 && (
+                    <section class="related-projects">
+                        <h2>مشاريع مشابهة</h2>
+                        <div class="related-grid">
+                            {relatedProjects.map((p) => (
+                                <a
+                                    href={`/portfolio/${p.slug}`}
+                                    class="related-card"
+                                >
+                                    {p.data.image ? (
+                                        <OptimizedImage
+                                            src={p.data.image}
+                                            alt={p.data.title}
+                                            loading="lazy"
+                                            width={400}
+                                            height={200}
+                                            widths={[300, 400]}
+                                            sizes="300px"
+                                        />
+                                    ) : (
+                                        <div class="placeholder">🖼️</div>
+                                    )}
+                                    <div class="related-content">
+                                        <h4>{p.data.title}</h4>
+                                        <span class="related-category">
+                                            {p.data.category}
+                                        </span>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </section>
+                )
+            }
+        </div>
+    </article>
+</MainLayout>
+
+<style>
+    .project-detail {
+        padding: 2rem 0;
+    }
+
+    .hero-image {
+        margin-bottom: 2rem;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+    }
+
+    .hero-image img,
+    .hero-image :global(img) {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+    }
+
+    .project-header {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .category {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: var(--color-primary);
+        color: white;
+        font-size: 0.875rem;
+        border-radius: var(--radius-md);
+        font-weight: 500;
+    }
+
+    time {
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+    }
+
+    .project-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-text);
+    }
+
+    .description {
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+    }
+
+    .project-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        margin-bottom: 2rem;
+    }
+
+    .info-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .info-item .label {
+        font-size: 0.85rem;
+        color: var(--color-text-muted);
+        font-weight: 500;
+    }
+
+    .info-item .value {
+        font-size: 1rem;
+        color: var(--color-text);
+        font-weight: 600;
+    }
+
+    .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tech-tag {
+        padding: 0.25rem 0.75rem;
+        background: var(--color-surface-hover);
+        color: var(--color-text-secondary);
+        font-size: 0.85rem;
+        border-radius: var(--radius-md);
+    }
+
+    .project-url {
+        color: var(--color-primary);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .project-url:hover {
+        text-decoration: underline;
+    }
+
+    .content-section {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--color-text);
+        margin-bottom: 3rem;
+    }
+
+    .content-section :global(h2) {
+        font-size: 1.75rem;
+        margin: 2rem 0 1rem;
+    }
+
+    .content-section :global(h3) {
+        font-size: 1.4rem;
+        margin: 1.5rem 0 0.75rem;
+    }
+
+    .content-section :global(p) {
+        margin-bottom: 1.25rem;
+    }
+
+    .content-section :global(ul),
+    .content-section :global(ol) {
+        padding-right: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .content-section :global(img) {
+        max-width: 100%;
+        border-radius: var(--radius-md);
+        margin: 1.5rem 0;
+    }
+
+    .back-link-container {
+        margin-bottom: 3rem;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    .back-link:hover {
+        color: var(--color-primary);
+    }
+
+    .related-projects {
+        padding-top: 2rem;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .related-projects h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--color-text);
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .related-card {
+        display: block;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .related-card img,
+    .related-card :global(img) {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+    }
+
+    .related-card .placeholder {
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-surface-hover);
+        font-size: 2rem;
+    }
+
+    .related-content {
+        padding: 1rem;
+    }
+
+    .related-content h4 {
+        color: var(--color-text);
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .related-category {
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+    }
+
+    @media (max-width: 768px) {
+        .project-header h1 {
+            font-size: 2rem;
+        }
+
+        .project-info {
+            grid-template-columns: 1fr;
+        }
+
+        .related-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
