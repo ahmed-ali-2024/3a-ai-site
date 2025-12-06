@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../../layouts/blog/MainLayout.astro";
 import { getCollection } from "astro:content";
+import OptimizedImage from "../../components/blog/OptimizedImage.astro";
 
 const services = await getCollection("services");
 
@@ -23,33 +24,49 @@ const publishedServices = services
             {
                 publishedServices.map((service) => (
                     <article class="service-card">
-                        <div class="service-icon">
-                            {service.data.icon || "🔧"}
-                        </div>
-                        <h2 class="service-title">
-                            <a href={`/services/${service.slug}`}>
-                                {service.data.title}
-                            </a>
-                        </h2>
-                        <p class="service-description">
-                            {service.data.description}
-                        </p>
-                        {service.data.features &&
-                            service.data.features.length > 0 && (
-                                <ul class="service-features">
-                                    {service.data.features
-                                        .slice(0, 3)
-                                        .map((feature) => (
-                                            <li>{feature}</li>
-                                        ))}
-                                </ul>
+                        <div class="card-image">
+                            {service.data.image ? (
+                                <OptimizedImage
+                                    src={service.data.image}
+                                    alt={service.data.title}
+                                    loading="lazy"
+                                    width={600}
+                                    height={300}
+                                    widths={[400, 600]}
+                                    sizes="(max-width: 768px) 100vw, 400px"
+                                />
+                            ) : (
+                                <div class="placeholder-image">
+                                    <span>🔧</span>
+                                </div>
                             )}
-                        <a
-                            href={`/services/${service.slug}`}
-                            class="service-link"
-                        >
-                            المزيد من التفاصيل ←
-                        </a>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="service-title">
+                                <a href={`/services/${service.slug}`}>
+                                    {service.data.title}
+                                </a>
+                            </h2>
+                            <p class="service-description">
+                                {service.data.description}
+                            </p>
+                            {service.data.features &&
+                                service.data.features.length > 0 && (
+                                    <ul class="service-features">
+                                        {service.data.features
+                                            .slice(0, 3)
+                                            .map((feature) => (
+                                                <li>{feature}</li>
+                                            ))}
+                                    </ul>
+                                )}
+                            <a
+                                href={`/services/${service.slug}`}
+                                class="service-link"
+                            >
+                                المزيد من التفاصيل ←
+                            </a>
+                        </div>
                     </article>
                 ))
             }
@@ -103,7 +120,7 @@ const publishedServices = services
         background: var(--color-surface);
         border: 1px solid var(--color-border);
         border-radius: var(--radius-xl, 16px);
-        padding: 2rem;
+        overflow: hidden;
         transition: all 0.3s ease;
         display: flex;
         flex-direction: column;
@@ -115,9 +132,43 @@ const publishedServices = services
         border-color: var(--color-primary);
     }
 
-    .service-icon {
+    .card-image {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .card-image img,
+    .card-image :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+    }
+
+    .service-card:hover .card-image img,
+    .service-card:hover .card-image :global(img) {
+        transform: scale(1.05);
+    }
+
+    .placeholder-image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+            135deg,
+            var(--color-surface-hover),
+            var(--color-border)
+        );
         font-size: 3rem;
-        margin-bottom: 1rem;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
     }
 
     .service-title {
