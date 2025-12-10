@@ -1,1 +1,595 @@
-<html><body style='display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-family:sans-serif;'><h1>Ahmed Ali Portfolio</h1><p>Coming Soon...</p></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="أحمد علي عبداللطيف سليمان - مطور تطبيقات Flutter ومهندس ذكاء اصطناعي. بناء تطبيقات عصرية وحلول تقنية مبتكرة.">
+    <meta name="keywords" content="Flutter, AI, Dart, Mobile Development, Ahmed Ali">
+    <meta name="author" content="Ahmed Ali Abdellatif Soliman">
+
+    <meta property="og:title" content="Ahmed Ali - Flutter Developer & AI Engineer">
+    <meta property="og:description" content="بناء تطبيقات عصرية وحلول تقنية مبتكرة باستخدام Flutter والذكاء الاصطناعي">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://3aai.in/">
+
+    <title>Ahmed Ali - Flutter Developer & AI Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Almarai:wght@400;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/footer-contact.css">
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#home" class="navbar-logo">
+                <div class="logo-icon">3A</div>
+                <span class="logo-text">Ahmed Ali</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-i18n="nav_home">الرئيسية</a></li>
+                <li><a href="#about-me" class="nav-link" data-i18n="nav_about">عني</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav_projects">المشاريع</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav_skills">المهارات</a></li>
+                <li><a href="https://news.3aai.in/" class="nav-link" data-i18n="nav_blog" target="_blank">المدونة</a>
+                </li>
+                <li><button id="lang-toggle" class="lang-toggle" onclick="toggleLanguage()"
+                        aria-label="Switch to English">EN</button></li>
+                <li class="nav-cta"><a href="#contact" class="btn btn-primary" data-i18n="nav_contact">تواصل معي</a>
+                </li>
+            </ul>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section id="home" class="hero">
+            <div class="hero-bg"></div>
+            <div class="container hero-container">
+                <div class="hero-content animate-fadeInUp">
+                    <span class="hero-greeting" data-i18n="hero_greeting">مرحباً، أنا</span>
+                    <h1 class="hero-name" data-i18n="hero_name">أحمد علي عبداللطيف سليمان</h1>
+                    <div class="hero-title-wrapper">
+                        <h2 class="hero-title" data-i18n="hero_title">مطور تطبيقات Flutter | مهندس ذكاء اصطناعي</h2>
+                    </div>
+                    <p class="hero-description" data-i18n="hero_description">
+                        أجمع بين شغف البرمجة وابتكارات الذكاء الاصطناعي لبناء تطبيقات عصرية تخدم المستخدمين. أكثر من 10
+                        سنوات خبرة في المجالات التقنية والإدارية.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero_cta_contact"></a>
+                        <a href="#projects" class="btn btn-outline btn-lg" data-i18n="hero_cta_projects"></a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://www.linkedin.com/in/a3a1981/" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/a3a1981" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                        <a href="mailto:A3a1981@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+201010510653" class="social-link"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+
+                <div class="hero-image animate-fadeIn">
+                    <div class="hero-image-wrapper">
+                        <div class="profile-image">
+                            <img src="assets/profile.png" alt="Ahmed Ali">
+                        </div>
+                        <div class="floating-icon flutter-icon animate-float"><i class="fab fa-flutter"></i></div>
+                        <div class="floating-icon management-icon animate-float" style="animation-delay:0.5s"><i
+                                class="fas fa-tasks"></i></div>
+                        <div class="floating-icon ai-icon animate-float" style="animation-delay:0.7s"><i
+                                class="fas fa-brain"></i></div>
+                        <div class="floating-icon code-icon animate-float" style="animation-delay:1s"><i
+                                class="fas fa-code"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card animate-on-scroll">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label" data-i18n="stats_projects"></div>
+                    </div>
+                    <div class="stat-card animate-on-scroll" style="animation-delay:0.1s">
+                        <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label" data-i18n="stats_experience"></div>
+                    </div>
+                    <div class="stat-card animate-on-scroll" style="animation-delay:0.2s">
+                        <div class="stat-icon"><i class="fas fa-code"></i></div>
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label" data-i18n="stats_technologies"></div>
+                    </div>
+                    <div class="stat-card animate-on-scroll" style="animation-delay:0.3s">
+                        <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label" data-i18n="stats_certifications"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME -->
+        <section id="about-3aai" class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content animate-on-scroll">
+                        <div class="section-badge"><span class="badge badge-primary" data-i18n="about_badge"></span></div>
+                        <h2 class="section-title" data-i18n="about_title"></h2>
+                        <p class="section-description" data-i18n="about_description"></p>
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                                <div class="feature-text">
+                                    <h4 data-i18n="about_vision_title"></h4>
+                                    <p data-i18n="about_vision_description"></p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                                <div class="feature-text">
+                                    <h4 data-i18n="about_mission_title"></h4>
+                                    <p data-i18n="about_mission_description"></p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                                <div class="feature-text">
+                                    <h4 data-i18n="about_values_title"></h4>
+                                    <p data-i18n="about_values_description"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#projects" class="btn btn-primary" data-i18n="about_explore_projects"></a>
+                    </div>
+                    <div class="about-visual animate-on-scroll">
+                        <div class="tech-stack">
+                            <div class="tech-item">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                                    alt="Flutter">
+                                <span>Flutter</span>
+                            </div>
+                            <div class="tech-item">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
+                                    alt="Dart">
+                                <span>Dart</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-brain"></i>
+                                <span>AI</span>
+                            </div>
+                            <div class="tech-item">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                                    alt="Firebase">
+                                <span>Firebase</span>
+                            </div>
+                            <div class="tech-item">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg"
+                                    alt="Astro">
+                                <span>Astro</span>
+                            </div>
+                            <div class="tech-item">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+                                    alt="Supabase">
+                                <span>Supabase</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-tasks"></i>
+                                <span>Management</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-cogs"></i>
+                                <span>CI/CD</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>N8N</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section bg-light">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="section-badge"><span class="badge badge-secondary" data-i18n="projects_badge"></span></div>
+                    <h2 class="section-title" data-i18n="projects_title"></h2>
+                    <p class="section-subtitle" data-i18n="projects_subtitle"></p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="assets/Cookit-App.png" alt="Cookit App">
+                            <div class="project-overlay">
+                                <a href="https://play.google.com/store/apps/details?id=com.a3aai.cookit" target="_blank"
+                                    class="btn btn-primary" data-i18n="project_view">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Cookit App</h3>
+                            <p data-i18n="project_cookit_app_description"></p>
+                            <div class="project-tech">
+                                <span class="badge badge-primary">Flutter</span>
+                                <span class="badge badge-secondary">Generative AI</span>
+                                <span class="badge badge-accent">supabase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-on-scroll" style="animation-delay:0.1s">
+                        <div class="project-image">
+                            <img src="assets/Cookit-Web.png" alt="Cookit Web">
+                            <div class="project-overlay">
+                                <a href="http://cookit.3aai.in/" target="_blank" class="btn btn-primary" data-i18n="project_view">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Cookit Web</h3>
+                            <p data-i18n="project_cookit_web_description"></p>
+                            <div class="project-tech">
+                                <span class="badge badge-secondary">Astro Framework</span>
+                                <span class="badge badge-secondary">Responsive</span>
+                                <span class="badge badge-accent">supabase</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-on-scroll" style="animation-delay:0.2s">
+                        <div class="project-image">
+                            <img src="assets/3A-AI-Prompt-Engineer.png" alt="3A-AI Prompt Engineer">
+                            <div class="project-overlay">
+                                <a href="https://pe.3aai.in/" target="_blank" class="btn btn-primary" data-i18n="project_view">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>3A-AI Prompt Engineer</h3>
+                            <p data-i18n="project_prompt_engineer_description"></p>
+                            <div class="project-tech">
+                                <span class="badge badge-secondary">AI</span>
+                                <span class="badge badge-primary">NLP</span>
+                                <span class="badge badge-accent">LLM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-on-scroll" style="animation-delay:0.3s">
+                        <div class="project-image">
+                            <img src="assets/3A-AI-News.png" alt="3A-AI News">
+                            <div class="project-overlay">
+                                <a href="https://news.3aai.in/" target="_blank" class="btn btn-primary" data-i18n="project_view">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 >3A-AI News</h3>
+                            <p data-i18n="project_news_description"></p>
+                            <div class="project-tech">
+                                <span class="badge badge-primary">WordPress</span>
+                                <span class="badge badge-accent">Content</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="section-badge"><span class="badge badge-accent" data-i18n="services_badge"></span></div>
+                    <h2 class="section-title" data-i18n="services_title"></h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon"><i class="fab fa-flutter"></i></div>
+                        <h3 data-i18n="service_flutter_title"></h3>
+                        <p data-i18n="service_flutter_description"></p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i><span data-i18n="service_flutter_feature_1"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_flutter_feature_2"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_flutter_feature_3"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_flutter_feature_4"></span></li>
+                        </ul>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="animation-delay:0.1s">
+                        <div class="service-icon"><i class="fas fa-brain"></i></div>
+                        <h3 data-i18n="service_ai_title"></h3>
+                        <p data-i18n="service_ai_description"></p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i><span data-i18n="service_ai_feature_1"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_ai_feature_2"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_ai_feature_3"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_ai_feature_4"></span></li>
+                        </ul>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="animation-delay:0.2s">
+                        <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3 data-i18n="service_consulting_title"></h3>
+                        <p data-i18n="service_consulting_description"></p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i><span data-i18n="service_consulting_feature_1"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_consulting_feature_2"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_consulting_feature_3"></span></li>
+                            <li><i class="fas fa-check"></i><span data-i18n="service_consulting_feature_4"></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section bg-light">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="section-badge"><span class="badge badge-primary" data-i18n="skills_badge"></span></div>
+                    <h2 class="section-title" data-i18n="skills_title"></h2>
+                    <p class="section-subtitle" data-i18n="skills_subtitle"></p>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-category animate-on-scroll">
+                        <h3 class="category-title"><i class="fas fa-mobile-alt"></i><span data-i18n="skills_mobile_development_title"></span></h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Flutter Framework</span>
+                                    <span class="skill-level" data-i18n="skills_flutter_level"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width:95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Dart Programming</span>
+                                    <span class="skill-level" data-i18n="skills_dart_level"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width:95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category animate-on-scroll" style="animation-delay:0.1s">
+                        <h3 class="category-title"><i class="fas fa-brain"></i><span data-i18n="skills_ai_title"></span></h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Generative AI</span>
+                                    <span class="skill-level" data-i18n="skills_generative_ai_level"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width:90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Prompt Engineering</span>
+                                    <span class="skill-level" data-i18n="skills_prompt_engineering_level"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width:95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category animate-on-scroll" style="animation-delay:0.2s">
+                        <h3 class="category-title"><i class="fas fa-globe"></i><span data-i18n="skills_web_development_title"></span></h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">HTML</span>
+                                    <span class="skill-level" data-i18n="skills_html_level"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width:90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">CSS</span>
+                                    <span class="skill-level" data-i18n="skills_css_level"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width:90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-level" data-i18n="skills_js_level"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width:90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Astro Framework</span>
+                                    <span class="skill-level" data-i18n="skills_astro_level"></span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width:70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info animate-on-scroll">
+                        <div class="section-badge"><span class="badge badge-accent" data-i18n="contact_badge"></span></div>
+                        <h2 class="section-title" data-i18n="contact_title"></h2>
+                        <p class="section-description" data-i18n="contact_description"></p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="method-details">
+                                    <h4 data-i18n="contact_email_title"></h4>
+                                    <a href="mailto:A3a1981@gmail.com">A3a1981@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="method-icon"><i class="fas fa-phone"></i></div>
+                                <div class="method-details">
+                                    <h4 data-i18n="contact_phone_title"></h4>
+                                    <a href="tel:+201010510653">+20 101 051 0653</a>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="method-icon"><i class="fab fa-linkedin"></i></div>
+                                <div class="method-details">
+                                    <h4>LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/a3a1981/"
+                                        target="_blank">linkedin.com/in/a3a1981</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper animate-on-scroll">
+                        <form class="contact-form" onsubmit="handleContactForm(event)">
+                            <!-- Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="b5776a96-b3cc-4ecb-969a-4452debffd0a">
+                            <input type="hidden" name="subject" value="رسالة جديدة من موقع Ahmed Ali">
+                            <input type="hidden" name="from_name" value="Ahmed Ali Portfolio">
+                            
+                            <div class="form-group">
+                                <label for="name" data-i18n="contact_form_name_label"></label>
+                                <input type="text" id="name" name="name" required placeholder="" data-i18n="contact_form_name_placeholder">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-i18n="contact_form_email_label"></label>
+                                <input type="email" id="email" name="email" required placeholder="" data-i18n="contact_form_email_placeholder">
+                            </div>
+                            <div class="form-group">
+                                <label for="service" data-i18n="contact_form_service_label"></label>
+                                <select id="service" name="service" required>
+                                    <option value="" data-i18n="contact_form_service_option_default"></option>
+                                    <option value="flutter" data-i18n="contact_form_service_option_flutter"></option>
+                                    <option value="ai" data-i18n="contact_form_service_option_ai"></option>
+                                    <option value="consulting" data-i18n="contact_form_service_option_consulting"></option>
+                                    <option value="other" data-i18n="contact_form_service_option_other"></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-i18n="contact_form_message_label"></label>
+                                <textarea id="message" name="message" rows="5" required
+                                    placeholder="" data-i18n="contact_form_message_placeholder"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg" data-i18n="contact_form_submit_button">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-icon">3A</div>
+                        <span>Ahmed Ali</span>
+                    </div>
+                    <p class="footer-description" data-i18n="footer_description"></p>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer_quick_links_title"></h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" data-i18n="footer_quick_link_home"></a></li>
+                        <li><a href="#about-me" data-i18n="footer_quick_link_about"></a></li>
+                        <li><a href="#projects" data-i18n="footer_quick_link_projects"></a></li>
+                        <li><a href="#skills" data-i18n="footer_quick_link_skills"></a></li>
+                        <li><a href="#contact" data-i18n="footer_quick_link_contact"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer_projects_title"></h4>
+                    <ul class="footer-links">
+                        <li><a href="https://play.google.com/store/apps/details?id=com.a3aai.cookit"
+                                target="_blank">Cookit App</a></li>
+                        <li><a href="http://cookit.3aai.in/" target="_blank">Cookit Web</a></li>
+                        <li><a href="https://pe.3aai.in/" target="_blank">Prompt Engineer</a></li>
+                        <li><a href="https://news.3aai.in/" target="_blank">3A-AI News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer_social_title"></h4>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/a3a1981/" target="_blank" class="footer-social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/a3a1981" target="_blank" class="footer-social-link"><i
+                                class="fab fa-github"></i></a>
+                        <a href="mailto:A3a1981@gmail.com" class="footer-social-link"><i
+                                class="fas fa-envelope"></i></a>
+                        <a href="https://wa.me/201010510653" target="_blank" class="footer-social-link"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="footer-contact-info">
+                        <p><i class="fas fa-envelope"></i> A3a1981@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +20 101 051 0653</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_copyright"></p>
+                <p data-i18n="footer_built_with"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
