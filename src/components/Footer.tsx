@@ -31,6 +31,7 @@ export default function Footer() {
               <li><a href="/portfolio" className="text-gray-400 hover:text-white transition-colors">أعمالنا</a></li>
               <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">من نحن</a></li>
               <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">اتصل بنا</a></li>
+              <li><a href="/privacy" className="text-gray-400 hover:text-white transition-colors">سياسة الخصوصية</a></li>
             </ul>
           </div>
 
