@@ -37,7 +37,14 @@ export function BlogPostsSection(_props: BlogPostsSectionProps) {
       <div className="max-w-7xl mx-auto">
         {/* العنوان الرئيسي */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center mb-12 leading-relaxed">
-          {SECTION_TITLE}
+          <a 
+            href="https://news.3aai.in/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-purple-400 transition-colors duration-300 cursor-pointer"
+          >
+            {SECTION_TITLE}
+          </a>
         </h2>
 
         {/* حالة التحميل */}
