@@ -1,0 +1,16 @@
+---
+interface Props {
+    id: string | number;
+}
+
+const { id } = Astro.props;
+---
+
+<div id={`ezoic-pub-ad-placeholder-${id}`}></div>
+<script is:inline define:vars={{ id }}>
+    window.ezstandalone = window.ezstandalone || {};
+    window.ezstandalone.cmd = window.ezstandalone.cmd || [];
+    window.ezstandalone.cmd.push(function () {
+        window.ezstandalone.showAds(parseInt(id));
+    });
+</script>

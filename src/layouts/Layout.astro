@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "3A-AI | حلول تقنية متكاملة",
-  description = "نقدم حلول الذكاء الاصطناعي، تطوير البرمجيات، وتجارب المستخدم الحديثة."
+	title = "3A-AI | حلول تقنية متكاملة",
+	description = "نقدم حلول الذكاء الاصطناعي، تطوير البرمجيات، وتجارب المستخدم الحديثة.",
 } = Astro.props;
 ---
 
@@ -18,12 +18,30 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+			rel="stylesheet"
+		/>
 		<meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<!-- Ezoic Privacy Scripts (Must be loaded first) -->
+		<script
+			data-cfasync="false"
+			src="https://cmp.gatekeeperconsent.com/min.js"></script>
+		<script
+			data-cfasync="false"
+			src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+
+		<!-- Ezoic Header Script -->
+		<script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+		<script is:inline>
+			window.ezstandalone = window.ezstandalone || {};
+			window.ezstandalone.cmd = window.ezstandalone.cmd || [];
+		</script>
 	</head>
 	<body class="font-cairo bg-black text-white antialiased overflow-x-hidden">
 		<slot />
