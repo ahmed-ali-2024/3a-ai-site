@@ -27,6 +27,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">روابط سريعة</h3>
             <ul className="space-y-2">
               <li><a href="/" className="text-gray-400 hover:text-white transition-colors">الرئيسية</a></li>
+              <li><a href="https://news.3aai.in/" className="text-gray-400 hover:text-white transition-colors">المدونة</a></li>
               <li><a href="/services" className="text-gray-400 hover:text-white transition-colors">الخدمات</a></li>
               <li><a href="/portfolio" className="text-gray-400 hover:text-white transition-colors">أعمالنا</a></li>
               <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">من نحن</a></li>
