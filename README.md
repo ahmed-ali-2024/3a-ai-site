@@ -1,44 +1,164 @@
-# Astro Starter Kit: Minimal
+# موقع 3A-AI | 3A-AI Website
 
-```sh
-npm create astro@latest -- --template minimal
+<div dir="rtl">
+
+> موقع خدمات وأعمال احترافي مبني باستخدام Astro + Keystatic
+
+[![Astro](https://img.shields.io/badge/Astro-5.16-FF5D01?logo=astro)](https://astro.build)
+[![Keystatic](https://img.shields.io/badge/Keystatic-5.0-6366F1)](https://keystatic.com)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+</div>
+
+---
+
+## 📖 نظرة عامة
+
+موقع **3A-AI** هو موقع احترافي يعرض:
+- ✅ **الخدمات التقنية** المقدمة
+- ✅ **معرض الأعمال** (Portfolio)
+- ✅ **صفحات ثابتة** (من نحن، اتصل بنا)
+- ✅ **نظام إدارة محتوى محلي** (Keystatic)
+
+### المميزات الرئيسية
+
+🚀 **سرعة فائقة**: بناء ثابت (Static Site Generation)  
+🎨 **تصميم متجاوب**: يعمل على جميع الأجهزة  
+📝 **سهولة الإدارة**: لوحة تحكم مرئية لإدارة المحتوى  
+🔄 **نشر تلقائي**: CI/CD عبر GitHub Actions  
+🔍 **محسّن لـ SEO**: بنية محسّنة لمحركات البحث
+
+---
+
+## 🏗️ التقنيات المستخدمة
+
+- **[Astro](https://astro.build)** - إطار العمل الأساسي
+- **[Keystatic](https://keystatic.com)** - نظام إدارة المحتوى
+- **[React](https://react.dev)** - المكونات التفاعلية
+- **[Tailwind CSS](https://tailwindcss.com)** - التصميم
+- **[Markdoc](https://markdoc.dev)** - معالجة المحتوى
+- **[TypeScript](https://www.typescriptlang.org)** - لغة البرمجة
+
+---
+
+## 🚀 البدء السريع
+
+### المتطلبات
+
+- Node.js 20 أو أحدث
+- npm أو yarn
+
+### التثبيت
+
+```bash
+# استنساخ المستودع
+git clone https://github.com/your-username/3aai-site.git
+cd 3aai-site
+
+# تثبيت التبعيات
+npm install
+
+# تشغيل الموقع
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+الموقع سيعمل على: **http://localhost:4321**
 
+### لوحة التحكم
 
-## 🚀 Project Structure
+افتح المتصفح على: **http://localhost:4321/keystatic**
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
+## 🧞 الأوامر المتاحة
+
+| الأمر | الوظيفة |
+|-------|---------|
+| `npm install` | تثبيت التبعيات |
+| `npm run dev` | تشغيل وضع التطوير |
+| `npm run build` | بناء للإنتاج |
+| `npm run preview` | معاينة النسخة المبنية |
+| `npm test` | تشغيل الاختبارات |
+
+---
+
+## 📁 هيكل المشروع
+
+```
+3aai-site/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/      # المكونات
+│   ├── content/         # المحتوى (.mdoc)
+│   │   ├── services/    # الخدمات
+│   │   ├── portfolio/   # الأعمال
+│   │   └── blog/        # المقالات
+│   ├── layouts/         # القوالب
+│   ├── pages/           # الصفحات
+│   └── styles/          # الأنماط
+├── public/
+│   └── images/          # الصور
+├── docs/                # التوثيق
+│   ├── DEVELOPER_GUIDE.md    # الدليل الشامل
+│   └── QUICK_REFERENCE.md    # المرجع السريع
+└── keystatic.config.ts  # إعدادات CMS
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 📚 التوثيق
 
-Any static assets, like images, can be placed in the `public/` directory.
+### 📖 الأدلة الرئيسية
 
-## 🧞 Commands
+- **[فهرس التوثيق](docs/INDEX.md)** - دليلك لجميع الوثائق
+- **[الدليل الشامل للمطور](docs/DEVELOPER_GUIDE.md)** - دليل تفصيلي كامل
+- **[المرجع السريع](docs/QUICK_REFERENCE.md)** - للعمليات الشائعة
+- **[دليل Keystatic](docs/KEYSTATIC_GUIDE.md)** - شرح لوحة التحكم
+- **[أمثلة عملية](docs/EXAMPLES.md)** - أمثلة كاملة للمحتوى
 
-All commands are run from the root of the project, from a terminal:
+### 📝 وثائق إضافية
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **[سجل التغييرات](docs/session-2025-12-06.md)** - تاريخ التطوير
+- **[المهام المستقبلية](docs/TODO.md)** - التحسينات المقترحة
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🚢 النشر
+
+المشروع يستخدم **GitHub Actions** للنشر التلقائي:
+
+1. عدّل المحتوى محلياً
+2. احفظ التغييرات في Git
+3. ارفع إلى GitHub (`git push`)
+4. النشر سيتم تلقائياً! 🎉
+
+---
+
+## 🤝 المساهمة
+
+المساهمات مرحب بها! يرجى:
+1. Fork المستودع
+2. إنشاء فرع للميزة الجديدة
+3. Commit التغييرات
+4. فتح Pull Request
+
+---
+
+## 📄 الترخيص
+
+هذا المشروع مرخص تحت [MIT License](LICENSE)
+
+---
+
+## 📞 التواصل
+
+- **الموقع**: [3aai.in](https://3aai.in)
+- **البريد**: support@3aai.in
+- **Facebook**: [@3a4ai](https://www.facebook.com/3a4ai/)
+
+---
+
+<div align="center">
+
+**صُنع بـ ❤️ باستخدام Astro**
+
+</div>
