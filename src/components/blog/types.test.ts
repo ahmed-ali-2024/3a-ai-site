@@ -10,7 +10,7 @@ import type { BlogPost, WordPressPost, APIConfig } from './types';
 describe('Types and Constants Setup', () => {
   describe('API_CONFIG', () => {
     it('should have correct base URL', () => {
-      expect(API_CONFIG.baseURL).toBe('https://news.3aai.in');
+      expect(API_CONFIG.baseURL).toBe('https://3aai-tn.net');
     });
 
     it('should have correct endpoint', () => {

@@ -16,7 +16,7 @@ const projects = [
     title: "3A-AI News",
     category: "مدونة تقنية",
     description: "مدونة تقدم محتوى متجدد حول التكنولوجيا الحديثة والذكاء الاصطناعي للمطورين العرب.",
-    link: "https://news.3aai.in/",
+    link: "https://3aai-tn.net/",
     icon: <Newspaper className="w-10 h-10 text-blue-400" />,
     tech: ["WordPress", "SEO", "Analytics"],
   },

@@ -10,7 +10,7 @@ import type { APIConfig } from './types';
  * يحدد عنوان API والمعاملات المطلوبة لجلب المقالات
  */
 export const API_CONFIG: APIConfig = {
-  baseURL: 'https://news.3aai.in',
+  baseURL: 'https://3aai-tn.net',
   endpoint: '/wp-json/wp/v2/posts',
   params: {
     per_page: 4,
@@ -32,7 +32,7 @@ export const MAX_EXCERPT_LENGTH = 150;
 /**
  * عنوان القسم الرئيسي
  */
-export const SECTION_TITLE = 'لا يفوتك الاطلاع على كل ما هو جديد في عالم التكنولوجيا في مدونة الموقع TN || 3AAi';
+export const SECTION_TITLE = 'لا يفوتك الاطلاع على كل ما هو جديد في عالم التكنولوجيا في مدونة الموقع 3A-Ai';
 
 /**
  * رسائل الأخطاء

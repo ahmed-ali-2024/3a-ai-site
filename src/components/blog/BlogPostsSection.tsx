@@ -29,7 +29,7 @@ export function BlogPostsSection(_props: BlogPostsSectionProps) {
   const { posts, loading, error } = useFetchPosts();
 
   return (
-    <section 
+    <section
       className="w-full py-20 px-4 sm:px-6 lg:px-8"
       dir="rtl"
       aria-label="قسم المقالات من المدونة"
@@ -37,9 +37,9 @@ export function BlogPostsSection(_props: BlogPostsSectionProps) {
       <div className="max-w-7xl mx-auto">
         {/* العنوان الرئيسي */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center mb-12 leading-relaxed">
-          <a 
-            href="https://news.3aai.in/" 
-            target="_blank" 
+          <a
+            href="https://3aai-tn.net/"
+            target="_blank"
             rel="noopener noreferrer"
             className="hover:text-purple-400 transition-colors duration-300 cursor-pointer"
           >
@@ -49,7 +49,7 @@ export function BlogPostsSection(_props: BlogPostsSectionProps) {
 
         {/* حالة التحميل */}
         {loading && (
-          <div 
+          <div
             className="flex items-center justify-center py-20"
             role="status"
             aria-live="polite"
@@ -64,7 +64,7 @@ export function BlogPostsSection(_props: BlogPostsSectionProps) {
 
         {/* حالة الخطأ */}
         {error && !loading && (
-          <div 
+          <div
             className="glass-card rounded-2xl p-8 text-center max-w-2xl mx-auto"
             role="alert"
             aria-live="assertive"
@@ -94,7 +94,7 @@ export function BlogPostsSection(_props: BlogPostsSectionProps) {
 
         {/* عرض المقالات */}
         {!loading && !error && posts.length > 0 && (
-          <div 
+          <div
             className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
             role="list"
           >

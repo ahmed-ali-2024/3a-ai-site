@@ -72,7 +72,7 @@ interface ErrorState {
 #### API_CONFIG
 ```typescript
 const API_CONFIG = {
-  baseURL: 'https://news.3aai.in',
+  baseURL: 'https://3aai-tn.net',
   endpoint: '/wp-json/wp/v2/posts',
   params: {
     per_page: 4,

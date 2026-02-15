@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const navItems = [
   { name: "الرئيسية", href: "#hero" },
-  { name: "المدونة", href: "https://news.3aai.in/" },
+  { name: "المدونة", href: "https://3aai-tn.net/" },
   { name: "خدماتنا", href: "/services" },
   { name: "أعمالنا", href: "/portfolio" },
   { name: "رؤيتنا", href: "#vision" },
